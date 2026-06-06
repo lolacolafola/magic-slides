@@ -98,19 +98,27 @@ Four cool merch items themed to the artist's actual real-world aesthetic.
 - Use real-world signature items where possible (artist's known fashion, recurring imagery, festival-exclusive drops, vinyl variants)
 - Each item displays a **coin price** that should map to a real € value
 
-**Coin-to-EUR pricing — TODO formula**
+**Coin-to-EUR pricing — confirmed rule (2026-06-06)**
 
-Laura has worked out conversions from existing decks (e.g. "85K coins for a VIP bundle" maps to some EUR figure). Until formulised in this file, options:
+Rough mapping (it's not exact math, treat as flexible ranges):
 
-1. Pull the formula from an existing deck's Shop frame
-2. Ask Laura for the rate
-3. Use this rough placeholder (REPLACE WITH REAL FORMULA WHEN AVAILABLE):
-   - 1,000 coins ≈ €X (TBD)
-   - VIP/premium items: 50K-100K coins
-   - Mid-tier items (hoodie, vinyl): 10K-30K coins
-   - Entry items (sticker, badge): 1K-5K coins
+> **1,000 coins ≈ €1**
 
-When the formula is documented here, the `/magic-slides` skill should compute coin prices from EUR targets automatically.
+Per-item bands from Laura's existing decks:
+
+| Item class | Coin price band | EUR equivalent |
+|---|---|---|
+| Collectible / sticker / small drop (CS) | ~15K coins | ~€15 |
+| T-shirt | 25-35K coins | ~€25-35 |
+| Hoodie / vinyl / mid-tier | 30-45K coins | ~€30-45 |
+| VIP bundle / premium experience | 85K+ coins | ~€85+ |
+
+The skill should:
+1. Draft 4 merch items themed to the artist's actual style
+2. Apply a coin price from the band that matches each item's category
+3. Show user the band + chosen value so they can fine-tune (e.g. an exclusive Coachella tee might lean toward 35K rather than 25K to reflect scarcity)
+
+Exact-math vibe is wrong — these are pitch decks, not real shop prices, so the bands above are guidance not strict rules.
 
 ### Magic Pulse.png
 

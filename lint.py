@@ -272,6 +272,32 @@ def check_required_chrome(path: Path, content: str) -> list[Finding]:
     return out
 
 
+def check_mobile_scroll(path: Path, content: str) -> list[Finding]:
+    """Mobile @media must override BOTH html and body for overflow-y.
+
+    Bug found 2026-06-06: base rule sets `html, body { overflow:hidden }`. If
+    the mobile @media only overrides body, html stays locked and touch scroll
+    is dead on phones. Look for `body { overflow-y:auto` without the matching
+    `html, body { overflow-y:auto` inside a max-width:768px media query.
+    """
+    out = []
+    # Find the mobile @media block
+    m = re.search(r"@media\s+screen\s+and\s+\(max-width:\s*768px\)\s*\{(?P<body>.*?)^\}",
+                  content, re.DOTALL | re.MULTILINE)
+    if not m:
+        return out  # no mobile block at all — separate concern, not this check
+    block = m.group("body")
+    block_line = _line_of(content, m.start())
+    # Look for a selector with body but not html that sets overflow-y:auto
+    bad = re.search(r"^\s*body\s*\{\s*overflow-y\s*:\s*auto", block, re.MULTILINE)
+    good = re.search(r"^\s*html\s*,\s*body\s*\{\s*overflow-y\s*:\s*auto", block, re.MULTILINE)
+    if bad and not good:
+        out.append(Finding("ERROR", path, block_line, "mobile-scroll",
+            "mobile @media only overrides `body` for overflow-y; must be `html, body` "
+            "(otherwise html stays overflow:hidden and touch scroll is dead on phones)"))
+    return out
+
+
 CHECKS: list[Callable[[Path, str], list[Finding]]] = [
     check_slide_numbers,
     check_no_bercy,
@@ -283,6 +309,7 @@ CHECKS: list[Callable[[Path, str], list[Finding]]] = [
     check_fr_br_overflow,
     check_body_font_size,
     check_required_chrome,
+    check_mobile_scroll,
 ]
 
 

@@ -216,7 +216,17 @@ Merch lineup for {artist}'s Coachella drop:
 4. ...
 ```
 
-Pricing math: TODO formula from Laura. Until formulised, ballpark from recent deck examples or ask Laura.
+Pricing math (confirmed 2026-06-06):
+
+> **1,000 coins ≈ €1** (rough; not exact)
+
+Per-item bands:
+- Collectible / sticker / small drop: ~15K coins (~€15)
+- T-shirt: 25-35K coins (~€25-35)
+- Hoodie / vinyl / mid-tier: 30-45K coins (~€30-45)
+- VIP bundle / premium: 85K+ coins (~€85+)
+
+Apply the band that matches each item's category. Lean toward the high end for scarcity / exclusivity (e.g. festival-exclusive tee → 35K not 25K).
 
 ### 6. Generate the test render
 
