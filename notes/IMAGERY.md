@@ -102,21 +102,25 @@ Four cool merch items themed to the artist's actual real-world aesthetic.
 
 Rough mapping (it's not exact math, treat as flexible ranges):
 
-> **1,000 coins ≈ €1**
+> **1,000 coins ≈ €1** as a baseline. For mid-to-premium items, coin price intentionally runs HIGHER than real EUR cost (showcases the "fan value" / exclusivity premium).
+
+**Hard design constraint: coin prices must fit in 5 digits (max 99,999).** No item can be priced 100K+ coins.
 
 Per-item bands from Laura's existing decks:
 
-| Item class | Coin price band | EUR equivalent |
-|---|---|---|
-| Collectible / sticker / small drop (CS) | ~15K coins | ~€15 |
-| T-shirt | 25-35K coins | ~€25-35 |
-| Hoodie / vinyl / mid-tier | 30-45K coins | ~€30-45 |
-| VIP bundle / premium experience | 85K+ coins | ~€85+ |
+| Item class | Coin price band | Real EUR cost | Notes |
+|---|---|---|---|
+| **CD** (physical music) | ~15K coins | ~€15 | entry-tier; close to 1:1 |
+| **T-shirt** | 25-35K coins | €25-35 | close to 1:1 |
+| **Hoodie / vinyl / mid-tier** | 45-65K coins | €40-50 | coin price runs above real cost |
+| **VIP bundle / premium experience** | 80-95K coins | €60-85 | premium markup; cap at 99K for the 5-digit limit |
 
 The skill should:
 1. Draft 4 merch items themed to the artist's actual style
 2. Apply a coin price from the band that matches each item's category
-3. Show user the band + chosen value so they can fine-tune (e.g. an exclusive Coachella tee might lean toward 35K rather than 25K to reflect scarcity)
+3. For mid-tier and VIP items, choose a coin price that sits ABOVE the realistic EUR cost (rewards engagement)
+4. Never exceed 99,999 coins (design constraint)
+5. Show user the band + chosen value so they can fine-tune (e.g. an exclusive Coachella tee might lean toward 35K rather than 25K to reflect scarcity)
 
 Exact-math vibe is wrong — these are pitch decks, not real shop prices, so the bands above are guidance not strict rules.
 

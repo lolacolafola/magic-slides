@@ -218,15 +218,17 @@ Merch lineup for {artist}'s Coachella drop:
 
 Pricing math (confirmed 2026-06-06):
 
-> **1,000 coins ≈ €1** (rough; not exact)
+> **1,000 coins ≈ €1** baseline. For mid/premium items, coin price runs ABOVE real EUR cost (shows fan-value/exclusivity premium).
+
+**Hard constraint: max 5 digits — no item over 99,999 coins.**
 
 Per-item bands:
-- Collectible / sticker / small drop: ~15K coins (~€15)
-- T-shirt: 25-35K coins (~€25-35)
-- Hoodie / vinyl / mid-tier: 30-45K coins (~€30-45)
-- VIP bundle / premium: 85K+ coins (~€85+)
+- **CD** (physical music): ~15K coins (close to 1:1 with ~€15)
+- **T-shirt**: 25-35K coins (close to 1:1 with €25-35)
+- **Hoodie / vinyl / mid-tier**: 45-65K coins (above the ~€40-50 real cost — show premium)
+- **VIP bundle / premium**: 80-95K coins (above ~€60-85 real cost — but cap at 99K for the 5-digit limit)
 
-Apply the band that matches each item's category. Lean toward the high end for scarcity / exclusivity (e.g. festival-exclusive tee → 35K not 25K).
+Apply the band that matches each item's category. For mid/premium items, pick a coin price that's ~20-40% above the realistic EUR cost. Lean toward the band's high end for scarcity / exclusivity (e.g. festival-exclusive tee → 35K not 25K).
 
 ### 6. Generate the test render
 
