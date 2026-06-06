@@ -135,6 +135,34 @@ Everything else stays canonical — DO NOT improvise.
 
 For CRM cards: keep the structure (build-up cards → peak ★ cards → after cards), translate each card's `nm` (name) + `hk` (hook copy) to the artist's flavour using [[crm-artist-dna]] as the translation table. Identify pulse type FIRST. Don't put anticipation cards in the D-day peak phase.
 
+**Card-to-feature-timeline rule — every CRM card's MECHANIC must match a product feature available in that phase of the momentum graph.**
+
+The s-momentum graph shows 14 canonical product features along the x-axis, in this exact order (don't change them — they're brand-locked per [[fanverse-locked]]):
+
+| Phase position on graph | Features available |
+|---|---|
+| **Build-up (x≈24-705)** | Magic Quest · Invite Friends · Magic Lens · Fan Faves · Talent Faves · Events · Tickets |
+| **★ Peak (x≈740-1010)** | Mystery Box · Fan Meet · Store |
+| **After (x≈1040-1320)** | Collectibles · Magic Unlimited · Merch · Music |
+
+When drafting a CRM card, the underlying MECHANIC must come from the feature set available in that card's phase column:
+
+- A **streaming-quest** card → Magic Quest mechanic → **Build-up phase only**
+- A **friend referral** card → Invite Friends mechanic → **Build-up phase only**
+- A **scavenger hunt** card → Magic Lens mechanic → **Build-up phase only**
+- An **anticipation poll** card → Fan Faves / Talent Faves mechanic → **Build-up phase only**
+- An **event RSVP** card → Events mechanic → **Build-up phase only**
+- A **presale ticket** card → Tickets mechanic → **Build-up phase only**
+- A **surprise drop** card → Mystery Box mechanic → **★ Peak phase only**
+- A **fan meet & greet** card → Fan Meet mechanic → **★ Peak phase only**
+- An **in-venue collection** card → Store mechanic → **★ Peak phase only**
+- A **digital collectible** card → Collectibles mechanic → **After phase only**
+- A **premium subscription** card → Magic Unlimited mechanic → **After phase only**
+- A **merch drop** card → Merch mechanic → **After phase only**
+- A **music release** card → Music mechanic → **After phase only**
+
+The card doesn't have to NAME the product feature (e.g. `Pookie hunt` is fine, it doesn't say "Magic Lens"). But the underlying mechanic must match the phase. Mismatch = the deck contradicts itself when fans look from the momentum graph to the CRM grid.
+
 **Card theming rule — a SELECT FEW signature cards anchor the deck, the rest stay clear.**
 
 Out of ~14 cards, pick **3-5 signature cards** to make deeply DNA-d (instantly readable as "that's so [Artist]"). The remaining cards do their functional job with light artist-name flavour but stay clear about mechanics. **Don't over-DNA every card** — when every card is a deep-cut reference, fans lose the through-line and mechanics become unintelligible.
