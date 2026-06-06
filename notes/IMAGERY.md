@@ -78,12 +78,21 @@ This flips the image horizontally (`scaleX(-1)`) AND flips the gradient mask dir
 - **Live/crowd moment** preferred over a studio portrait — this slide is about the fan relationship
 - **Lighter/airier** mood than s1 if possible — gives the deck visual variation
 
-### Frame images (s5 + s8 shared)
+### Frame images (s5 + s8) — PER-ARTIST CUSTOMIZATION REQUIRED
 
-- **Don't change these per deck** unless Magic launches new product UI
-- They're product mockups; they should look like screenshots of the Magic app
-- Standard set: `Fanverse.png`, `Gamification.png`, `Fan Chat.png`, `Shop.png`, `Magic Pulse.png`
-- ~720×1560 portrait (iPhone mockup proportions)
+These 5 mobile mockups are currently **the highest-friction per-artist task** because they need to be edited in Figma for every new deck. They're not generic product screenshots — each frame is artist-themed:
+
+- **Fanverse.png** — shows the artist's name, photo, fan count, activities specific to them
+- **Gamification.png** — XP / coin UI customised to the artist's level structure + their photo
+- **Fan Chat.png** — shows chat threads themed around the artist (fan questions, drop mentions, recent songs)
+- **Shop.png** — shows the artist's actual merch / collectibles
+- **Magic Pulse.png** — phone mock with the artist's insights / mood dashboard data
+
+Typical resolution: ~720×1560 portrait (iPhone mockup proportions).
+
+**Today's workflow**: edit each frame in Figma → export PNG → drop into `Assets/Frames/Deck Edits/`. About 1-2 hours per artist if reusing previous decks' Figma file as a template.
+
+**Future automation target**: see [project_figma_automation memory](../../../.claude/projects/-Users-laura-AI-Projects-Magic-Slides/memory/project_figma_automation.md) — this is the single highest-value Figma automation. If a Phase 2 build happens, these 5 frames should be the first thing the Figma generator handles (read YAML, swap text + photo layers in a Figma template, export PNG).
 
 ## Object-position fine-tuning
 
