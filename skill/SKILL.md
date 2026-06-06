@@ -135,17 +135,34 @@ Everything else stays canonical — DO NOT improvise.
 
 For CRM cards: keep the structure (build-up cards → peak ★ cards → after cards), translate each card's `nm` (name) + `hk` (hook copy) to the artist's flavour using [[crm-artist-dna]] as the translation table. Identify pulse type FIRST. Don't put anticipation cards in the D-day peak phase.
 
-**CRITICAL: card titles + hooks must reference SPECIFIC iconic items from the artist's DNA, not generic mechanics.** The reference YAMLs (toto, gims, twinsmatic) use slightly generic card names because they were extracted from earlier-era decks — those are starting structures, not the bar. The bar is: every card should make a fan think "oh that's so [Artist]." Use the verified DNA (signature songs, recurring imagery, fan-known characters, iconic merch items, ad-libs, in-jokes) to theme each card around something fans already recognise.
+**Card theming rule — a SELECT FEW signature cards anchor the deck, the rest stay clear.**
 
-**Bad (too generic):** `City hunt — Scan QR checkpoints to unlock drops`
+Out of ~14 cards, pick **3-5 signature cards** to make deeply DNA-d (instantly readable as "that's so [Artist]"). The remaining cards do their functional job with light artist-name flavour but stay clear about mechanics. **Don't over-DNA every card** — when every card is a deep-cut reference, fans lose the through-line and mechanics become unintelligible.
 
-**Good (anchored to artist DNA):** `Pookie hunt — Spot the Pookie drops in 10 French cities, first 100 scanners win a Stade upgrade` *(uses Aya's iconic song character "Pookie" as the hunted item)*
+**Which cards to deeply DNA (the signature 3-5):**
+- The exploration / hunt card (always good for a tangible artist item — e.g. `Pookie hunt`)
+- One peak/★ card (the "OMG" moment — e.g. `Djadja remix unlock`)
+- The merch / drop card (tied to album or aesthetic — e.g. `Diamant drop`)
+- A post-event collectible card (specific to artist's signature — e.g. `Nail kit drop`)
+- Optionally: the "tastes" card (their playlist of inspirations)
 
-**Good (album-pulse example):** `Hidden track — A handful of fans unlock an unreleased loop from twinsmatic's lab` *(uses producer-DNA framing: lab, loops, beats)*
+**Which cards to keep clearer (functional with light flavour):**
+- Spotify / streaming connect ("Stream Aya, earn coins" — mechanic must be obvious)
+- Refer-a-friend card ("Nakamuristes crew" — name themed, mechanic clear)
+- Final countdown ("Daily teasers the week before Stade" — function obvious)
+- Backstage / behind-the-scenes (universal pattern, light theme OK)
+- Stream club / premium tier (mechanic must be obvious)
 
-**Good (concert-pulse example):** `Encore unlock — Scan your stub at the venue, get a free drink + the "Salgoat" wristband` *(specific tour name + tangible item)*
+**Examples of the right balance:**
 
-When the artist has multiple iconic items (songs, characters, signature looks), distribute them across cards so the deck feels deep, not repetitive. E.g. for Aya: Pookie (build-up hunt), Djadja (rhythm game), Diamant (peak drop), nail kit (post-show collectible).
+| Type | Bad (over-DNA, confusing) | Good (clear + light flavour) | Good (signature, deep DNA) |
+|---|---|---|---|
+| Streaming connect | `Djadja flow link` (what is this?) | `Spotify connect — Stream Aya, earn coins` | — |
+| Hunt card | — | — | `Pookie hunt — Spot Pookie drops in 10 cities` |
+| Peak unlock | — | — | `Djadja remix unlock — Exclusive remix only at Stade` |
+| Backstage | `Studio Destinée pour-over` (lost) | `Backstage with Aya — Soundcheck, week by week` | — |
+
+**Sanity test:** A first-time visitor to the deck should understand what the deck DOES from any single card. The signature cards make it feel personal; the functional cards make it feel real.
 
 ### 5. Set up the deck folder + give the user the asset brief
 
