@@ -30,16 +30,18 @@ There are only TWO meaningful per-artist axes in Magic decks today:
 1. **Pulse type**: **concert / tour / event** OR **album drop**. That's it. This drives phase ribbon labels, CRM card flavour, revenue defaults, capacity bullet shape.
 2. **The anchor moment itself** (whatever the user tells you): venue + date for concert/event/tour, OR release month + album name for album drop. **NO assumed default venue (especially NOT Accor — Accor was just the venue for Toto/Gims, not a Magic-wide default).**
 
-Ask the user:
+Ask the user **only these 3 things to start** (do NOT ask for venue/date yet — that comes at step 4 when we actually need it):
+
 - **Artist name** (display form, e.g. `Aya Nakamura`; preserve lowercase brands like `twinsmatic`)
 - **Pulse type**: concert/tour/event vs album drop
-- **Anchor mode** (NEW — ask this BEFORE web-searching, to avoid wasted verification):
-  - **Real confirmed booking** — user has insider info, give exact venue/date
-  - **Speculative pitch** — user is pitching Magic to the artist's team using a proposed venue/date; treat as the deck's hypothesis, no need to "verify" it externally
+- **Anchor mode** (ask BEFORE web-searching to avoid wasted verification):
+  - **Real confirmed booking** — user has insider info, will give exact venue/date later
+  - **Speculative pitch** — user is pitching Magic to the artist's team using a proposed venue/date
   - **Hypothetical demo / template** — clearly-flagged placeholder
-- **Anchor details** based on pulse + mode (venue + date for concert/event/tour; release month + album name for album drop). Whatever the user says is what goes in. Don't web-search to validate the venue/date — that's their input, not a fact-claim to challenge.
 
-Save the answers; don't proceed without them.
+**Do NOT ask for venue/date/release-month upfront.** That information is only needed when drafting the YAML's anchor-specific fields (step 4). Asking now creates friction — the user has to produce details that sit unused while you verify artist DNA. If web-search in step 2 surfaces the answer for real bookings (e.g. Aya Nakamura has confirmed Stade de France dates), that becomes part of the facts brief — and at that point you can also ASK the user if they want to use it as the anchor or pitch a different moment.
+
+Save these 3 answers; don't proceed without them.
 
 ### 2. Verify the artist's real facts with web search
 
