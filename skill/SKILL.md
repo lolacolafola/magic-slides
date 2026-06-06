@@ -70,6 +70,39 @@ Anything wrong or missing? I'll only use confirmed facts in the deck.
 
 Wait for explicit user approval. If something's wrong, ask follow-ups and re-verify before proceeding. If the artist is obscure or you can't find solid sources, say so plainly and ask the user to provide the facts manually.
 
+### 2b. Verify the artist's AUDIENCE SIZE — drives revenue calculator defaults
+
+Before drafting the YAML, web-search the artist's measurable audience to set realistic `sim_*` values:
+
+- **Spotify monthly listeners** (primary signal for music artists)
+- **Instagram followers** (cross-check)
+- **YouTube subscribers** (cross-check)
+- **TikTok followers** (for younger artists)
+- **Recent tour gross / venue capacities** (sanity for paying-fan scale)
+
+Compile and present:
+
+```
+Audience snapshot for {artist}:
+- Spotify monthly listeners: {N}M
+- Instagram: {N}M followers
+- (other relevant signals)
+
+Proposed revenue calculator defaults (concert pulse, 15% conversion):
+- sim_default_reach: {X}M     (≈ {pct}% of Spotify monthly listeners — Magic-addressable audience)
+- sim_default_fans: {Y}M      (reach × 15%)
+- Tier breakdown scales from there
+
+Does {X}M reach feel right, or should we adjust before drafting?
+```
+
+Reach is NOT the artist's total audience — it's the slice Magic can realistically convert into a Fanverse. Defaults from existing decks for calibration:
+- Toto (regional francophone star): 4M reach, 600K fans, €491k gross
+- Twinsmatic (producer, smaller scale): 1M reach, 100K fans, €81.8k gross
+- Global pop stars (Sabrina-scale): ballpark 10-20M reach, 1.5-3M fans, €1-2M+ gross
+
+Wait for user approval before locking in the calculator numbers.
+
 ### 3. Pick a starting YAML profile
 
 There are TWO canonical starting profiles, one per pulse type:
@@ -100,14 +133,90 @@ Everything else stays canonical — DO NOT improvise.
 
 For CRM cards: keep the structure (build-up cards → peak ★ cards → after cards), translate each card's `nm` (name) + `hk` (hook copy) to the artist's flavour using [[crm-artist-dna]] as the translation table. Identify pulse type FIRST. Don't put anticipation cards in the D-day peak phase.
 
-### 5. Set up the deck folder
+### 5. Set up the deck folder + give the user the asset brief
 
 Create `magic-{artist-slug}-deck/` as a sibling of the other deck folders.
 
 Structure to copy from a reference deck (e.g. magic-twinsmatic-deck):
-- `Assets/` subfolder for images (artist hero, s-superfans, s5 frame images, s8 Magic Pulse) — ASK the user to drop these into the folder before continuing, or to point you at existing files
+- `Assets/` subfolder for images
 - `preview-server.js` (copy verbatim)
 - `.git/info/exclude` with `index.test.html` added so it never gets committed
+
+#### THE ASSET BRIEF — what the user needs to source + customise
+
+There are **3 photos + 5 Figma mockups** per deck. Compile the brief and present to the user (so they can collect/produce in parallel while you continue drafting):
+
+##### A. The 3 photos
+
+1. **s1 hero (the "cool" photo)** — `Assets/{artist-slug}-hero.jpg`
+   - Vibe: COOL. On stage in performance mode, OR an iconic pose
+   - **Critical**: dead/quiet space on the LEFT side (the left half fades to navy via gradient mask; busy left side fights the fade)
+   - Portrait orientation, ~1000×1250+, single subject
+   - If artist faces LEFT in photo → flag `s1_hero_mirrored: true` in YAML
+
+2. **s4 Fanverse centre (the "iconic" square photo)** — used in the round centre of the solar-system slide
+   - Square aspect ratio (it sits inside a round frame)
+   - Close-up of face OR something they're very famously associated with
+   - Should read instantly at small size — high contrast face shot works best
+
+3. **s-superfans / outro hero (the "warm" photo)** — `Assets/{artist-slug}-superfans.jpg`
+   - Vibe: WARM, personality-forward, inviting
+   - Should make a viewer want to *join their Fanverse* — show the artist as someone you'd want to be in community with
+   - Same portrait + dead-space-on-the-correct-side rules as s1
+   - Outstanding, iconic, or radiating personality
+
+Tell the user explicitly what each photo needs to *do* (cool / iconic / warm) so they brief their team or pick from existing material appropriately.
+
+##### B. The 5 Figma mobile frames (require per-artist customisation in Figma, then export PNG)
+
+These ALL need the artist's face / brand swapped in. Land each PNG at `Assets/Frames/Deck Edits/{name}.png`:
+
+1. **Fanverse.png** — overall Fanverse home mock. Avatar = artist, copy + activities themed around the deck's pulse (concert vs album)
+2. **Gamification.png** — XP/coin progression UI. Avatar = artist. Simpler edit, mostly just face swap.
+3. **Fan Chat.png** — chat mockup. Needs **3 chat messages + 1 poll**, all themed around the deck's anchor activation:
+   - For concert/tour: messages reference tour anticipation, ticket access, city the show is in; poll asks something like "Which support act?" or "Which surprise track?"
+   - For album: messages reference single drops, listening sessions, lyric reveals; poll asks something like "Favourite track?" or "Which deluxe addition?"
+4. **Shop.png** — merch shop mockup. Needs **4 cool merch items** themed to the artist:
+   - Use real-world signature items where possible (e.g. for Sabrina: bow accessories, lingerie-inspired tee, vinyl in heart-shape, Coachella-exclusive hoodie)
+   - Each item needs a **coin price** that maps to a real € value
+   - **Coin-to-EUR formula**: TODO — extract from existing decks (Laura has worked out conversions e.g. "85K coins for a VIP bundle"). Until formulised, ask Laura for the rate or look at recent decks' shop frames.
+5. **Magic Pulse.png** — phone-mock insights dashboard. Avatar = artist; insight strings can stay canonical or be lightly themed.
+
+If the user can't source/produce all 5 immediately, still proceed with HTML generation — broken-image alt text will surface what's missing in preview, then fill in incrementally.
+
+##### C. Fan Chat content suggestions (you draft, user approves)
+
+Per the 3 chats + 1 poll requirement, draft based on the deck's anchor + verified artist DNA. Format as:
+
+```
+Fan Chat content for {artist} (around {anchor} activation):
+
+Chat 1: [fan name] — "[message that references something specific to the activation]"
+Chat 2: [fan name] — "[message expressing the kind of fan culture that already exists IRL]"
+Chat 3: [fan name] — "[message about something verified — recent song, recent moment, fan ritual]"
+
+Poll: "[question themed to the activation, with 2-4 fan-relevant options]"
+- Option A: ...
+- Option B: ...
+- Option C: ...
+- Option D: ...
+```
+
+NEVER invent fan ritual / nickname / recent moment — use only what was verified in step 2. Reuse verified material from the CRM cards where it overlaps.
+
+##### D. Merch items suggestions (you draft, user approves)
+
+For the 4 merch slots, draft based on the artist's real merch aesthetic + the anchor moment. Format as:
+
+```
+Merch lineup for {artist}'s Coachella drop:
+1. [Item name] — [short desc] — {coin_price}c (≈ €{eur_price})
+2. ...
+3. ...
+4. ...
+```
+
+Pricing math: TODO formula from Laura. Until formulised, ballpark from recent deck examples or ask Laura.
 
 ### 6. Generate the test render
 
