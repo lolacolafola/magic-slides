@@ -22,11 +22,24 @@ from pathlib import Path
 from typing import Callable
 
 ROOT = Path(__file__).resolve().parent
-DEFAULT_DECKS = [
-    ROOT.parent.parent / "magic-twinsmatic-deck" / "index.html",
-    ROOT.parent.parent / "magic-toto-deck" / "index.html",
-    ROOT.parent.parent / "magic-gims-deck" / "index.html",
-]
+PROJECT_ROOT = ROOT.parent.parent  # ../../ from magic-deck-tool/
+
+def discover_decks() -> list[Path]:
+    """Find all deck index.html files under any magic-*-deck/ folder, including
+    nested sub-decks (e.g. magic-artist-deck/celine-dion/index.html).
+
+    Excludes test renders and template files.
+    """
+    found = []
+    for deck_dir in sorted(PROJECT_ROOT.glob("magic-*-deck")):
+        for path in deck_dir.rglob("index.html"):
+            # Skip generated test renders + template
+            if path.name == "index.test.html":
+                continue
+            if "magic-deck-tool" in str(path):
+                continue
+            found.append(path)
+    return found
 
 # Product names that must NOT be translated (data-en == data-fr).
 PRODUCT_NAMES = {
@@ -335,7 +348,7 @@ def main() -> int:
 
     targets = list(args.decks)
     if args.all:
-        targets.extend(DEFAULT_DECKS)
+        targets.extend(discover_decks())
     if not targets:
         p.error("specify at least one HTML file or --all")
 
