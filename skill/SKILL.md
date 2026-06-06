@@ -19,7 +19,7 @@ Tooling lives at `magic-design-system/magic-deck-tool/`:
 - `template/index.html` — Jinja2 deck template
 - `generate.py` — renders YAML → HTML
 - `lint.py` — checks deck against all memory rules
-- `examples/{twinsmatic,toto,gims}.yaml` — copy one as the starting profile
+- `examples/example-artist.yaml` — fictional reference showing the YAML structure
 
 ## Step-by-step flow
 
@@ -28,18 +28,18 @@ Tooling lives at `magic-design-system/magic-deck-tool/`:
 There are only TWO meaningful per-artist axes in Magic decks today:
 
 1. **Pulse type**: **concert / tour / event** OR **album drop**. That's it. This drives phase ribbon labels, CRM card flavour, revenue defaults, capacity bullet shape.
-2. **The anchor moment itself** (whatever the user tells you): venue + date for concert/event/tour, OR release month + album name for album drop. **NO assumed default venue (especially NOT Accor — Accor was just the venue for Toto/Gims, not a Magic-wide default).**
+2. **The anchor moment itself** (whatever the user tells you): venue + date for concert/event/tour, OR release month + album name for album drop. **NO assumed default venue. Whatever venue/date the user gives = the anchor.**
 
 Ask the user **only these 3 things to start** (do NOT ask for venue/date yet — that comes at step 4 when we actually need it):
 
-- **Artist name** (display form, e.g. `Aya Nakamura`; preserve lowercase brands like `twinsmatic`)
+- **Artist / client name** (display form; preserve lowercase if applicable)
 - **Pulse type**: concert/tour/event vs album drop
 - **Anchor mode** (ask BEFORE web-searching to avoid wasted verification):
   - **Real confirmed booking** — user has insider info, will give exact venue/date later
   - **Speculative pitch** — user is pitching Magic to the artist's team using a proposed venue/date
   - **Hypothetical demo / template** — clearly-flagged placeholder
 
-**Do NOT ask for venue/date/release-month upfront.** That information is only needed when drafting the YAML's anchor-specific fields (step 4). Asking now creates friction — the user has to produce details that sit unused while you verify artist DNA. If web-search in step 2 surfaces the answer for real bookings (e.g. Aya Nakamura has confirmed Stade de France dates), that becomes part of the facts brief — and at that point you can also ASK the user if they want to use it as the anchor or pitch a different moment.
+**Do NOT ask for venue/date/release-month upfront.** That information is only needed when drafting the YAML's anchor-specific fields (step 4). Asking now creates friction — the user has to produce details that sit unused while you verify artist DNA. If web-search in step 2 surfaces the answer for real bookings (e.g. the artist has confirmed venue/dates), that becomes part of the facts brief — and at that point you can also ASK the user if they want to use it as the anchor or pitch a different moment.
 
 Save these 3 answers; don't proceed without them.
 
@@ -99,9 +99,9 @@ Does {X}M reach feel right, or should we adjust before drafting?
 ```
 
 Reach is NOT the artist's total audience — it's the slice Magic can realistically convert into a Fanverse. Defaults from existing decks for calibration:
-- Toto (regional francophone star): 4M reach, 600K fans, €491k gross
-- Twinsmatic (producer, smaller scale): 1M reach, 100K fans, €81.8k gross
-- Global pop stars (Sabrina-scale): ballpark 10-20M reach, 1.5-3M fans, €1-2M+ gross
+- Regional/national artist tier: ~4M reach, ~600K fans, ~€500k gross (concert pulse @ 15%)
+- Smaller/producer scale: ~1M reach, ~100K fans, ~€80k gross
+- Global pop stars: ~10-20M reach, ~1.5-3M fans, ~€1-2M+ gross
 
 Wait for user approval before locking in the calculator numbers.
 
@@ -109,10 +109,9 @@ Wait for user approval before locking in the calculator numbers.
 
 There are TWO canonical starting profiles, one per pulse type:
 
-- **Album drop** → copy `examples/twinsmatic.yaml` (album pulse, lowercase brand example)
-- **Concert / tour / event** → copy `examples/toto.yaml` (single-date) OR `examples/gims.yaml` (multi-night). Either works for any concert-style pitch — pick whichever skeleton is closer to the artist's situation.
+Copy `examples/example-artist.yaml` as the starting point and adapt for the artist's pulse type (album drop or concert/tour/event). The fictional example shows the full YAML structure with placeholder values; real client adaptations stay local.
 
-Save as `examples/{artist-slug}.yaml`. The `{artist-slug}` is lowercase + hyphens (e.g. `aya-nakamura`).
+Save as `examples/{artist-slug}.yaml`. The `{artist-slug}` is lowercase + hyphens (e.g. `jane-doe`). **Do not commit this file — the `.gitignore` rule keeps real client/pitch YAMLs local.**
 
 ### 4. Adapt the YAML to the artist
 
@@ -163,22 +162,22 @@ When drafting a CRM card:
 1. If using an always-on mechanic → no phase constraint, place anywhere
 2. If using a phase-specific mechanic → must place in the matching phase column
 
-The card doesn't have to NAME the product feature (e.g. `Pookie hunt` is fine, doesn't say "Magic Lens"). But the mechanic must align. Lint check `crm-phase-alignment` catches explicit-name mismatches automatically.
+The card doesn't have to NAME the product feature (e.g. `[Iconic-thing] hunt` is fine, doesn't say "Magic Lens"). But the mechanic must align. Lint check `crm-phase-alignment` catches explicit-name mismatches automatically.
 
 **Card theming rule — a SELECT FEW signature cards anchor the deck, the rest stay clear.**
 
 Out of ~14 cards, pick **3-5 signature cards** to make deeply DNA-d (instantly readable as "that's so [Artist]"). The remaining cards do their functional job with light artist-name flavour but stay clear about mechanics. **Don't over-DNA every card** — when every card is a deep-cut reference, fans lose the through-line and mechanics become unintelligible.
 
 **Which cards to deeply DNA (the signature 3-5):**
-- The exploration / hunt card (always good for a tangible artist item — e.g. `Pookie hunt`)
-- One peak/★ card (the "OMG" moment — e.g. `Djadja remix unlock`)
-- The merch / drop card (tied to album or aesthetic — e.g. `Diamant drop`)
+- The exploration / hunt card (always good for a tangible artist item — e.g. a hunt themed around a fan-known song/character/visual)
+- One peak/★ card (the "OMG" moment — e.g. `signature song remix unlock`)
+- The merch / drop card (tied to album or aesthetic — e.g. `premium tier drop`)
 - A post-event collectible card (specific to artist's signature — e.g. `Nail kit drop`)
 - Optionally: the "tastes" card (their playlist of inspirations)
 
 **Which cards to keep clearer (functional with light flavour):**
-- Spotify / streaming connect ("Stream Aya, earn coins" — mechanic must be obvious)
-- Refer-a-friend card ("Nakamuristes crew" — name themed, mechanic clear)
+- Spotify / streaming connect ("Stream [artist], earn coins" — mechanic must be obvious)
+- Refer-a-friend card ("fan crew crew" — name themed, mechanic clear)
 - Final countdown ("Daily teasers the week before Stade" — function obvious)
 - Backstage / behind-the-scenes (universal pattern, light theme OK)
 - Stream club / premium tier (mechanic must be obvious)
@@ -187,18 +186,18 @@ Out of ~14 cards, pick **3-5 signature cards** to make deeply DNA-d (instantly r
 
 | Type | Bad (over-DNA, confusing) | Good (clear + light flavour) | Good (signature, deep DNA) |
 |---|---|---|---|
-| Streaming connect | `Djadja flow link` (what is this?) | `Spotify connect — Stream Aya, earn coins` | — |
-| Hunt card | — | — | `Pookie hunt — Spot Pookie drops in 10 cities` |
-| Peak unlock | — | — | `Djadja remix unlock — Exclusive remix only at Stade` |
-| Backstage | `Studio Destinée pour-over` (lost) | `Backstage with Aya — Soundcheck, week by week` | — |
+| Streaming connect | `Flow link` (what is this?) | `Spotify connect — Stream [artist], earn coins` | — |
+| Hunt card | — | — | `[Iconic-thing] hunt — Spot themed drops in 10 cities` |
+| Peak unlock | — | — | `signature song remix unlock — Exclusive remix only at Stade` |
+| Backstage | `Studio [album-name] pour-over` (lost) | `Backstage with [artist] — Soundcheck, week by week` | — |
 
 **Sanity test:** A first-time visitor to the deck should understand what the deck DOES from any single card. The signature cards make it feel personal; the functional cards make it feel real.
 
 ### 5. Set up the deck folder + give the user the asset brief
 
-Create `magic-{artist-slug}-deck/` as a sibling of the other deck folders.
+Create `magic-{artist-slug}-deck/` as a sibling of any existing deck folders.
 
-Structure to copy from a reference deck (e.g. magic-twinsmatic-deck):
+Structure to copy from a reference deck:
 - `Assets/` subfolder for images
 - `preview-server.js` (copy verbatim)
 - `.git/info/exclude` with `index.test.html` added so it never gets committed
@@ -238,7 +237,7 @@ These ALL need the artist's face / brand swapped in. Land each PNG at `Assets/Fr
    - For concert/tour: messages reference tour anticipation, ticket access, city the show is in; poll asks something like "Which support act?" or "Which surprise track?"
    - For album: messages reference single drops, listening sessions, lyric reveals; poll asks something like "Favourite track?" or "Which deluxe addition?"
 4. **Shop.png** — merch shop mockup. Needs **4 cool merch items** themed to the artist:
-   - Use real-world signature items where possible (e.g. for Sabrina: bow accessories, lingerie-inspired tee, vinyl in heart-shape, Coachella-exclusive hoodie)
+   - Use real-world signature items where possible (e.g. a pop star known for a signature accessory: themed tee, signature-shaped vinyl, festival-exclusive hoodie)
    - Each item needs a **coin price** that maps to a real € value
    - **Coin-to-EUR formula**: TODO — extract from existing decks (Laura has worked out conversions e.g. "85K coins for a VIP bundle"). Until formulised, ask Laura for the rate or look at recent decks' shop frames.
 5. **Magic Pulse.png** — phone-mock insights dashboard. Avatar = artist; insight strings can stay canonical or be lightly themed.
@@ -270,7 +269,7 @@ NEVER invent fan ritual / nickname / recent moment — use only what was verifie
 For the 4 merch slots, draft based on the artist's real merch aesthetic + the anchor moment. Format as:
 
 ```
-Merch lineup for {artist}'s Coachella drop:
+Merch lineup for {artist}'s the festival drop:
 1. [Item name] — [short desc] — {coin_price}c (≈ €{eur_price})
 2. ...
 3. ...
@@ -340,11 +339,11 @@ python3 generate.py examples/{artist-slug}.yaml -o ../../magic-{artist-slug}-dec
 # Set up GitHub remotes IF this is the first push (ask user about repo creation)
 cd ../../magic-{artist-slug}-deck
 git init  # if not already initialized
-# Ask user: does a vibeonmagic/magic-{slug}-deck repo exist on GitHub? lolacolafola/magic-{slug}-deck?
+# Ask user: does a deck repo already exist on GitHub for this client?
 # If yes, add remotes:
-git remote add origin https://github.com/lolacolafola/magic-{slug}-deck.git
-git remote set-url --add --push origin https://github.com/lolacolafola/magic-{slug}-deck.git
-git remote set-url --add --push origin https://github.com/vibeonmagic/magic-{slug}-deck.git
+git remote add origin https://github.com/{org}/magic-{slug}-deck.git
+# Add a second push URL if dual-mirroring (personal account + brand org)
+git remote set-url --add --push origin https://github.com/{second-org}/magic-{slug}-deck.git
 
 # Commit + push
 git add index.html Assets/ preview-server.js
@@ -355,15 +354,15 @@ git push -u origin main
 ```
 
 After push, give the user the 3 URLs (per [[deck-deploy-rule]]):
-- Presentation: `https://vibeonmagic.com/magic-{slug}-deck/`
-- EN scroll: `https://vibeonmagic.com/magic-{slug}-deck/?scroll&en`
-- FR scroll: `https://vibeonmagic.com/magic-{slug}-deck/?scroll&fr`
+- Presentation: `{deploy-host}/magic-{slug}-deck/`
+- EN scroll: `{deploy-host}/magic-{slug}-deck/?scroll&en`
+- FR scroll: `{deploy-host}/magic-{slug}-deck/?scroll&fr`
 
-(Or `lolacolafola` equivalents.)
+Deploy host depends on the project setup (personal GitHub Pages, org GitHub Pages, or other static host).
 
 ### 11. Update memory if anything surprising came up
 
-If new artist-specific facts were verified (similar to [[project-twinsmatic-facts]]), save them as a project memory so future sessions don't re-verify.
+If new artist-specific facts were verified (similar to [[project-artist-alpha-facts]]), save them as a project memory so future sessions don't re-verify.
 
 ## When NOT to proceed
 
@@ -377,5 +376,5 @@ If new artist-specific facts were verified (similar to [[project-twinsmatic-fact
 - [ ] All 3 URL forms work in browser (default, ?scroll, ?presentation if applicable)
 - [ ] EN and FR both render without overflow
 - [ ] User explicitly approved the visual
-- [ ] Pushed to both vibeonmagic + lolacolafola
+- [ ] Pushed to all configured deck remote(s)
 - [ ] User has the 3 deploy URLs in hand

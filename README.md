@@ -1,8 +1,8 @@
 # magic-slides
 
-Agent-based generator for Magic artist pitch decks. Turns a one-page YAML profile into a full, brand-compliant HTML deck, with a linter that enforces every recurring brand rule. Driven by a Claude Code skill (`/magic-slides`) that handles the end-to-end flow — fact-checking, drafting, generating, linting, previewing, and shipping.
+Agent-based generator for bespoke pitch decks. Turns a one-page YAML profile into a full, brand-compliant HTML deck, with a linter that enforces every recurring brand rule. Driven by a Claude Code skill (`/magic-slides`) that handles the end-to-end flow — fact-checking, drafting, generating, linting, previewing, and shipping.
 
-Built and maintained by [Laura](https://github.com/lolacolafola) for [Magic](https://vibeonmagic.com). Public for portfolio / sharing; the actual deck content (artist copy, CRM cards) is Magic-specific.
+Built and maintained by [Laura Cordrey](https://github.com/lolacolafola). The pattern was developed against a specific brand system; the public version of this repo shows the structure with a fictional example. Real client adaptations stay local.
 
 ## What this tool does
 
@@ -10,22 +10,22 @@ Takes hand-built bespoke decks (which used to take ~3 hours each, with recurring
 
 The pattern:
 - One canonical HTML template with ~56 `{{placeholder}}` slots
-- Per-artist YAML profiles supply the values
+- Per-client YAML profiles supply the values
 - A linter enforces ~10+ brand rules automatically
-- An interactive AI skill walks you through new-artist setup, including web-verifying the artist's real facts before drafting anything
+- An interactive AI skill walks you through new-deck setup, including web-verifying real facts before drafting anything
 
 ## Quick start
 
 ```bash
-# Render a deck to a test-render sibling file (NEVER overwrites a live index.html)
-python3 generate.py examples/twinsmatic.yaml -o ../magic-twinsmatic-deck/index.test.html
+# Render the example deck
+python3 generate.py examples/example-artist.yaml -o /tmp/example-deck.html
 
-# Run the linter against any deck
+# Lint any deck
 python3 lint.py path/to/index.html
-python3 lint.py --all                          # lint the 3 reference decks
+python3 lint.py --all                          # lint all discovered decks
 
 # Round-trip test (verify the template still matches a live deck byte-for-byte)
-python3 generate.py examples/twinsmatic.yaml --check ../magic-twinsmatic-deck/index.html
+python3 generate.py examples/example-artist.yaml --check path/to/index.html
 ```
 
 ## What's in here
@@ -36,19 +36,11 @@ magic-slides/
 ├── template/
 │   └── index.html          # Jinja2 deck template (~3,660 lines, ~56 placeholders)
 ├── examples/
-│   ├── twinsmatic.yaml     # album-pulse reference (lowercase brand)
-│   ├── toto.yaml           # concert-pulse single-night reference
-│   ├── gims.yaml           # concert-pulse multi-night reference
-│   └── sabrina-carpenter.yaml  # speculative pitch example
+│   └── example-artist.yaml # Fictional reference profile showing the YAML structure
 ├── generate.py             # Jinja renderer + --check round-trip mode
-├── lint.py                 # ~10 brand-rule checks (slide numbers, pill color, product names, SVG centering, mobile zoom, ...)
+├── lint.py                 # ~11 brand-rule checks (slide numbers, pill color, product names, SVG centering, mobile zoom, CRM phase alignment, etc.)
 ├── skill/
 │   └── SKILL.md            # The /magic-slides Claude Code skill — interactive new-deck flow
-├── notes/
-│   ├── TRIANGULATION.md    # Slide inventory + per-slide variant table from the 3 reference decks
-│   ├── PLACEHOLDERS.md     # Every {{placeholder}} the template uses
-│   ├── CONDITIONALS.md     # Pulse-type branching plan
-│   └── ROUND_TRIP_STATUS.md # Workflow rules, round-trip status
 └── schemas/                # (reserved for future JSON Schema for YAML profiles)
 ```
 
@@ -66,30 +58,29 @@ mkdir -p ~/.claude/skills/magic-slides
 cp skill/SKILL.md ~/.claude/skills/magic-slides/SKILL.md
 ```
 
-Then in Claude Code: type `/magic-slides` followed by an artist's name. It will:
+Then in Claude Code: type `/magic-slides` followed by an artist or client name. It will:
 
 1. Ask pulse type (album drop vs concert/tour/event) and anchor mode (real / speculative / hypothetical)
-2. Web-search the artist's real facts (never fabricates)
-3. Draft a YAML profile from the closest reference deck
+2. Web-search real facts (never fabricates)
+3. Draft a YAML profile from a starting reference
 4. Run the generator + linter
 5. Open a browser preview
 6. Wait for your eyeball before pushing to GitHub
 
 ## Hard rules
 
-- **Never write to a live `index.html` until preview is approved.** Generator should target `index.test.html` first.
+- **Never write to a live `index.html` until preview is approved.** Generator targets `index.test.html` first.
 - **Never push to GitHub without explicit user approval** after a visual check.
-- **Never fabricate artist facts.** Web-search to verify; ask user when uncertain.
-- **Test files are local-only** — `.git/info/exclude` in each deck folder has `index.test.html` listed.
+- **Never fabricate facts.** Web-search to verify; ask user when uncertain.
 
 ## Why this exists
 
-Magic produces many artist pitch decks. Each one used to be a manual ~3-hour rebuild of the previous one, with predictable drift bugs (wrong slide numbers, off-canonical SVG centering, banned CSS classes sneaking back in, fabricated artist facts from earlier sessions). This tool ends that pattern: drift is caught by `lint.py`, copy is enforced by the template + memory rules, and the interactive skill ensures no fabricated facts go into a deck.
+Producing many bespoke client decks used to mean a manual ~3-hour rebuild of the previous one, with predictable drift bugs (wrong slide numbers, off-canonical SVG centering, banned CSS classes sneaking back in, fabricated facts from earlier sessions). This tool ends that pattern: drift is caught by `lint.py`, copy is enforced by the template + memory rules, and the interactive skill ensures no fabricated facts go into a deck.
 
 ## Status
 
-Phase 1 shipped 2026-06-06. Three reference decks (twinsmatic, toto, gims) round-trip byte-identical from their YAML profiles. Linter catches all documented brand rules. Skill flow tested end-to-end with a speculative Sabrina Carpenter / Coachella pitch.
+Phase 1 shipped 2026-06-06. Production decks round-trip byte-identical from their YAML profiles. Linter catches all documented brand rules across the deployed deck fleet. Skill flow tested end-to-end with real and speculative pitches.
 
-Future ideas (not yet built, see Magic-internal notes):
-- **Brand-layer extraction** — separate the Magic brand from the template so other brands could plug in
+Future ideas (not yet built):
+- **Brand-layer extraction** — separate brand-specific bits from the template so other brands could plug in
 - **Figma sync** — mirror the YAML → HTML generator with YAML → Figma using the Figma MCP

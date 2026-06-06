@@ -13,3 +13,12 @@ __pycache__/
 .vscode/
 .idea/
 *.swp
+
+# Artist-specific YAMLs stay local — never commit real client/pitch content.
+# Only example-artist.yaml is whitelisted as the public reference.
+examples/*.yaml
+!examples/example-artist.yaml
+
+# Working notes contain detailed deck-derivation context (specific artist analysis).
+# Keep local; not portfolio-useful, IP-sensitive.
+notes/

@@ -1,48 +1,43 @@
-# Magic deck profile — ElGrandeToto (concert pulse, single night, Accor Arena)
-# Renders byte-identical to magic-toto-deck/index.html MODULO 7 drift fixes
-# (canonical /12 numbering, canonical ribbon x=367/872/1176, wrapped product tspans,
-#  frames_path_prefix = Assets/Frames/Deck Edits/, gl-tl+gl-br pair, comment normalisation,
-#  ?scroll= branch retained).
+# Magic deck profile — Example Artist (concert pulse, single night).
+# Fictional example showing the YAML structure. Real client YAMLs stay local.
+# Copy this file, rename to your-artist.yaml, fill in verified facts.
 
 pulse_type: concert
 
 identity:
-  deck_slug: toto
-  deck_title: "Magic — ElGrandeToto"
-  artist_name_display: ElGrandeToto
-  artist_name_pill: ElGrandeToto
+  deck_slug: example-artist
+  deck_title: "Magic — Example Artist"
+  artist_name_display: Example Artist
+  artist_name_pill: Example Artist
   artist_name_pill_lowercase_flag: false
-  s4_centre_line1: ELGRANDE
-  s4_centre_line2: TOTO
+  s4_centre_line1: EXAMPLE
+  s4_centre_line2: ARTIST
   s4_centre_line1_size: 11
 
 cover:
-  cover_trigger_en: "Built for Salgoat world tour · Accor Arena · 27 March 2027"
-  cover_trigger_fr: "Pensé pour le Salgoat world tour · Accor Arena · 27 mars 2027"
+  cover_trigger_en: "Built for [tour name] · [venue] · [date]"
+  cover_trigger_fr: "Pensé pour [tournée] · [venue] · [date]"
 
 s1:
-  s1_trigger_en: "Accor on 27 March is the trigger. Magic is what turns one night into a fandom that keeps going."
-  s1_trigger_fr: "Accor le 27 mars, c'est le déclencheur. Magic, c'est ce qui transforme un soir en un fandom qui dure."
-  s1_hero_img_src: "Assets/76e84c62-elgrandetoto2-1010x1263.jpg"
-  s1_hero_img_alt: ElGrandeToto
+  s1_trigger_en: "[Venue] on [date] is the trigger. Magic is what turns one night into a fandom that keeps going."
+  s1_trigger_fr: "[Venue] le [date], c'est le déclencheur. Magic, c'est ce qui transforme un soir en un fandom qui dure."
+  s1_hero_img_src: "Assets/example-hero.jpg"
+  s1_hero_img_alt: Example Artist
   s1_hero_object_position: "center 30%"
   s1_hero_mirrored: false
 
 hero:
-  # NOTE: Toto's image files actually live at Assets/Frames/ (not Deck Edits/).
-  # Earlier triangulation flagged the path as drift but the files are genuinely
-  # at the parent level — override the template default to match reality.
-  frames_path_prefix: "Assets/Frames/"
-  s_superfans_hero_img_src: "Assets/2a6d5dfcf5624daba1a7bb0b6f468cddf2f10b1a.jpeg"
+        frames_path_prefix: "Assets/Frames/Deck Edits/"
+  s_superfans_hero_img_src: "Assets/example-superfans.jpg"
   s_superfans_hero_object_position: "40% 30%"
 
 s5:
-  s5_body_en: "Magic, for real. A range of experiences inside the Fanverse, shaped with your team (chat, treasure hunts, drops, collectibles, and more), keeping ElGrandeToto and his fans close every day."
-  s5_body_fr: "Magic en vrai. De nombreuses expériences au cœur du Fanverse à développer avec vos équipes (chat, chasse au trésor, drops, collectibles, etc.) rapprochent ElGrandeToto et ses fans chaque jour."
+  s5_body_en: "Magic, for real. A range of experiences inside the Fanverse, shaped with your team (chat, treasure hunts, drops, collectibles, and more), keeping Example Artist and his fans close every day."
+  s5_body_fr: "Magic en vrai. De nombreuses expériences au cœur du Fanverse à développer avec vos équipes (chat, chasse au trésor, drops, collectibles, etc.) rapprochent Example Artist et ses fans chaque jour."
 
 momentum:
-  momentum_sub_en: "Magic turns Accor and everything around it into fan experiences that drive more reach, more sales, more engagement. Fewer flat spots, momentum all year."
-  momentum_sub_fr: "Magic transforme Accor et tout ce qui l'entoure en expériences fans qui génèrent plus de portée, plus de ventes, plus d'engagement. Moins de creux, du momentum toute l'année."
+  momentum_sub_en: "Magic turns the show and everything around it into fan experiences that drive more reach, more sales, more engagement. Fewer flat spots, momentum all year."
+  momentum_sub_fr: "Magic transforme le concert et tout ce qui l'entoure en expériences fans qui génèrent plus de portée, plus de ventes, plus d'engagement. Moins de creux, du momentum toute l'année."
   phase_build_label_en: "Build-up · Sep - Feb"
   phase_build_label_fr: "Mise en route · sep - fév"
   phase_peak_label_en: "Concert · Mar"
@@ -51,10 +46,10 @@ momentum:
   phase_after_label_fr: "Après le concert · avril - et après"
 
 crm:
-  crm_headline_en_html: 'The road to <span class="gt">Accor and beyond.</span>'
-  crm_headline_fr_html: 'La route vers <span class="gt">Accor, et au-delà.</span>'
-  crm_sub_en: "Here's an example of ElGrandeToto's Fanverse in action, from his first stream to the next tour."
-  crm_sub_fr: "Voici un exemple du Fanverse d'ElGrandeToto en action, du premier stream à la prochaine tournée."
+  crm_headline_en_html: 'The road to <span class="gt">the show and beyond.</span>'
+  crm_headline_fr_html: 'La route vers <span class="gt">le concert, et au-delà.</span>'
+  crm_sub_en: "Here's an example of Example Artist's Fanverse in action, from his first stream to the next tour."
+  crm_sub_fr: "Voici un exemple du Fanverse d'Example Artist en action, du premier stream à la prochaine tournée."
   crm_months:
     - label: SEPT
       is_peak: false
@@ -76,8 +71,8 @@ crm:
     - label: OCT/NOV
       is_peak: false
       cards:
-        - nm_en: "Casa hunt"
-          nm_fr: "Casa hunt"
+        - nm_en: "City hunt"
+          nm_fr: "City hunt"
           hk_en: "Scan QR checkpoints to unlock drops"
           hk_fr: "Scanne les QR pour débloquer des drops"
           color: cyan
@@ -93,8 +88,8 @@ crm:
     - label: DEC
       is_peak: false
       cards:
-        - nm_en: "Toto tastes"
-          nm_fr: "Les goûts de Toto"
+        - nm_en: "Artist tastes"
+          nm_fr: "Les goûts de l'artiste"
           hk_en: "He shares the tracks shaping his sound"
           hk_fr: "Il partage les morceaux qui inspirent son univers"
           color: cyan
@@ -105,8 +100,8 @@ crm:
       cards:
         - nm_en: "Show vote"
           nm_fr: "Vote du show"
-          hk_en: "Vote one track Toto plays at Accor"
-          hk_fr: "Vote un morceau que Toto joue à Accor"
+          hk_en: "Vote one track the artist plays at the show"
+          hk_fr: "Vote un morceau que l'artiste joue au concert"
           color: cyan
           rwd: true
           icons: [sparkle]
@@ -122,24 +117,24 @@ crm:
       cards:
         - nm_en: "Final countdown"
           nm_fr: "Compte à rebours"
-          hk_en: "Daily drops the week before Accor"
-          hk_fr: "Drops quotidiens la semaine d'avant"
+          hk_en: "Daily drops the week before the show"
+          hk_fr: "Drops quotidiens la semaine d&apos;avant le show"
           color: purp
           rwd: false
           icons: [ticket]
         - nm_en: "City challenge"
           nm_fr: "Défi des villes"
-          hk_en: "Group selfie at Accor wins a digital collectible"
-          hk_fr: "Selfie de groupe à Accor = collectible digital"
+          hk_en: "Group selfie at the venue wins a digital collectible"
+          hk_fr: "Selfie de groupe au venue = collectible digital"
           color: purp
           rwd: true
           icons: [sparkle]
     - label: MAR
       is_peak: true
       cards:
-        - nm_en: "Collect at Accor"
-          nm_fr: "Retrait à Accor"
-          hk_en: "Order merch ahead, collect on the night"
+        - nm_en: "Collect at venue"
+          nm_fr: "Retrait au venue"
+          hk_en: "Order merch ahead, collect on show night"
           hk_fr: "Commande le merch en avance, récupère le soir J"
           color: purp
           rwd: false
@@ -161,8 +156,8 @@ crm:
           color: teal
           rwd: false
           icons: [video]
-        - nm_en: "Goat limited"
-          nm_fr: "Goat limited"
+        - nm_en: "Artist limited"
+          nm_fr: "Artist limited"
           hk_en: "Limited drop, link to checkout"
           hk_fr: "Drop limité, lien direct au checkout"
           color: teal
@@ -197,7 +192,7 @@ revenue:
   sim_net: "€368,250"
 
 outro:
-  s13_capacity_bullet_en_html: "Accor holds 20,000 on 27 March. Magic opens a space for them, and for the millions who couldn't be there too."
-  s13_capacity_bullet_fr_html: "Accor accueillera 20 000 fans le 27 mars. Magic leur ouvre un espace, ainsi qu'aux millions qui n'ont pas pu en être."
-  s13_moment_bullet_en_html: "from pre-show anticipation to the final encore and the months after, every fan lives every beat alongside ElGrandeToto, ticket or not."
-  s13_moment_bullet_fr_html: "des moments imaginés avant les concerts au dernier rappel puis aux mois qui suivent, chaque fan vit un instant unique avec ElGrandeToto, avec ou sans billet."
+  s13_capacity_bullet_en_html: "[Venue] holds [capacity] on [date]. Magic opens a space for them, and for the millions who couldn't be there too."
+  s13_capacity_bullet_fr_html: "[Venue] accueillera [capacité] fans le [date]. Magic leur ouvre un espace, ainsi qu'aux millions qui n'ont pas pu en être."
+  s13_moment_bullet_en_html: "from pre-show anticipation to the final encore and the months after, every fan lives every beat alongside Example Artist, ticket or not."
+  s13_moment_bullet_fr_html: "des moments imaginés avant les concerts au dernier rappel puis aux mois qui suivent, chaque fan vit un instant unique avec Example Artist, avec ou sans billet."
