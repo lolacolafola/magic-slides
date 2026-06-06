@@ -135,33 +135,35 @@ Everything else stays canonical — DO NOT improvise.
 
 For CRM cards: keep the structure (build-up cards → peak ★ cards → after cards), translate each card's `nm` (name) + `hk` (hook copy) to the artist's flavour using [[crm-artist-dna]] as the translation table. Identify pulse type FIRST. Don't put anticipation cards in the D-day peak phase.
 
-**Card-to-feature-timeline rule — every CRM card's MECHANIC must match a product feature available in that phase of the momentum graph.**
+**Card-to-feature-timeline rule — phase-specific mechanics must appear only in their valid phase. Always-on mechanics can appear anywhere.**
 
-The s-momentum graph shows 14 canonical product features along the x-axis, in this exact order (don't change them — they're brand-locked per [[fanverse-locked]]):
+The s-momentum graph shows 14 product features along the x-axis. They split into two kinds:
 
-| Phase position on graph | Features available |
-|---|---|
-| **Build-up (x≈24-705)** | Magic Quest · Invite Friends · Magic Lens · Fan Faves · Talent Faves · Events · Tickets |
-| **★ Peak (x≈740-1010)** | Mystery Box · Fan Meet · Store |
-| **After (x≈1040-1320)** | Collectibles · Magic Unlimited · Merch · Music |
+**ALWAYS-ON mechanics (can appear in any phase):**
+- **Magic Quest** — battle-pass-style XP ladder fans climb from join → premium tier; present throughout the journey
+- **Magic Lens** — scavenger-hunt mechanic; can be deployed any phase
+- **Invite Friends** — referral mechanic; typical in build-up but valid anywhere
+- **Music** — catalogue streaming; always-on
+- **Collectibles** — can drop in any phase
 
-When drafting a CRM card, the underlying MECHANIC must come from the feature set available in that card's phase column:
+**PHASE-SPECIFIC mechanics (must match phase or the deck contradicts itself):**
 
-- A **streaming-quest** card → Magic Quest mechanic → **Build-up phase only**
-- A **friend referral** card → Invite Friends mechanic → **Build-up phase only**
-- A **scavenger hunt** card → Magic Lens mechanic → **Build-up phase only**
-- An **anticipation poll** card → Fan Faves / Talent Faves mechanic → **Build-up phase only**
-- An **event RSVP** card → Events mechanic → **Build-up phase only**
-- A **presale ticket** card → Tickets mechanic → **Build-up phase only**
-- A **surprise drop** card → Mystery Box mechanic → **★ Peak phase only**
-- A **fan meet & greet** card → Fan Meet mechanic → **★ Peak phase only**
-- An **in-venue collection** card → Store mechanic → **★ Peak phase only**
-- A **digital collectible** card → Collectibles mechanic → **After phase only**
-- A **premium subscription** card → Magic Unlimited mechanic → **After phase only**
-- A **merch drop** card → Merch mechanic → **After phase only**
-- A **music release** card → Music mechanic → **After phase only**
+| Mechanic | Where it belongs | Why |
+|---|---|---|
+| **Mystery Box** | ★ Peak only | Surprise drops AT the anchor moment, not before/after |
+| **Fan Meet** | ★ Peak only | In-venue meetups during the event |
+| **Fan Faves** | Build-up only | Anticipation polling — leads up to the event |
+| **Talent Faves** | Build-up only | Artist's pre-event picks (loses meaning after) |
+| **Magic Unlimited** | After only | Premium subscription tier — launches as the long-term retention play after the moment |
+| **Events / Tickets** | Build-up leading to Peak | RSVP + presale culminating in the show |
+| **Store** | ★ Peak only | In-venue physical collection moment |
+| **Merch** | After only | Post-event merch drops (live-merch is handled by Store) |
 
-The card doesn't have to NAME the product feature (e.g. `Pookie hunt` is fine, it doesn't say "Magic Lens"). But the underlying mechanic must match the phase. Mismatch = the deck contradicts itself when fans look from the momentum graph to the CRM grid.
+When drafting a CRM card:
+1. If using an always-on mechanic → no phase constraint, place anywhere
+2. If using a phase-specific mechanic → must place in the matching phase column
+
+The card doesn't have to NAME the product feature (e.g. `Pookie hunt` is fine, doesn't say "Magic Lens"). But the mechanic must align. Lint check `crm-phase-alignment` catches explicit-name mismatches automatically.
 
 **Card theming rule — a SELECT FEW signature cards anchor the deck, the rest stay clear.**
 

@@ -285,6 +285,64 @@ def check_required_chrome(path: Path, content: str) -> list[Finding]:
     return out
 
 
+def check_crm_phase_alignment(path: Path, content: str) -> list[Finding]:
+    """Phase-specific CRM mechanics must appear only in their valid phase.
+
+    Some product features on the momentum graph are ALWAYS-ON across the
+    journey (Magic Quest = XP ladder fans climb anytime; Magic Lens =
+    scavenger-hunt mechanic; Invite Friends = referral; Music = catalogue).
+    Those are NOT checked — they can appear in any phase legitimately.
+
+    But some features are tied to a specific moment in the journey and don't
+    make sense outside their phase:
+      Mystery Box       → Peak only (surprise drops AT the moment)
+      Fan Meet          → Peak only (in-venue meetups)
+      Fan Faves         → Build-up only (anticipation polling)
+      Talent Faves      → Build-up only (artist's pre-event picks)
+      Magic Unlimited   → After only (premium subscription tier launches late)
+
+    We only check EXPLICIT mentions of these phase-specific feature names.
+    Cards using mechanics implicitly (e.g. 'Pookie hunt' implies Magic Lens)
+    are not checked, only explicit name mentions.
+    """
+    # Phase-specific features only → phase color classes where they belong
+    FEATURE_PHASE = {
+        "Mystery Box": {"purp"},        # Peak only — surprise drops AT the moment
+        "Fan Meet": {"purp"},           # Peak only — in-venue meetups
+        "Fan Faves": {"cyan"},          # Build-up only — anticipation polling
+        "Talent Faves": {"cyan"},       # Build-up only — artist's pre-event picks
+        "Magic Unlimited": {"teal"},    # After only — premium subscription
+    }
+    PHASE_LABEL = {"cyan": "Build-up", "purp": "★ Peak", "teal": "After"}
+
+    out = []
+    # Match each j-card with its color class and inner nm + hk text
+    card_re = re.compile(
+        r'<div class="j-card (?P<color>cyan|purp|teal)"[^>]*>'
+        r'(?P<inner>.*?)</div>\s*(?=<div class="j-card|</div>)',
+        re.DOTALL
+    )
+    for m in card_re.finditer(content):
+        color = m.group("color")
+        inner = m.group("inner")
+        line = _line_of(content, m.start())
+        # Extract nm and hk visible text
+        nm_match = re.search(r'<div class="nm"[^>]*>([^<]*)</div>', inner)
+        hk_match = re.search(r'<div class="hk"[^>]*>([^<]*)</div>', inner)
+        card_text = ((nm_match.group(1) if nm_match else "") + " " +
+                     (hk_match.group(1) if hk_match else ""))
+        # Check each distinctive feature name
+        for feature, allowed_colors in FEATURE_PHASE.items():
+            if feature in card_text and color not in allowed_colors:
+                allowed_phase = ", ".join(PHASE_LABEL[c] for c in allowed_colors)
+                actual_phase = PHASE_LABEL[color]
+                out.append(Finding("ERROR", path, line, "crm-phase-alignment",
+                    f"card mentions '{feature}' but is in {actual_phase} phase "
+                    f"(color={color}); '{feature}' is only available in {allowed_phase} "
+                    f"per the momentum graph"))
+    return out
+
+
 def check_mobile_scroll(path: Path, content: str) -> list[Finding]:
     """Mobile @media must override BOTH html and body for overflow-y.
 
@@ -323,6 +381,7 @@ CHECKS: list[Callable[[Path, str], list[Finding]]] = [
     check_body_font_size,
     check_required_chrome,
     check_mobile_scroll,
+    check_crm_phase_alignment,
 ]
 
 
