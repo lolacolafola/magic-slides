@@ -135,6 +135,18 @@ Everything else stays canonical — DO NOT improvise.
 
 For CRM cards: keep the structure (build-up cards → peak ★ cards → after cards), translate each card's `nm` (name) + `hk` (hook copy) to the artist's flavour using [[crm-artist-dna]] as the translation table. Identify pulse type FIRST. Don't put anticipation cards in the D-day peak phase.
 
+**CRITICAL: card titles + hooks must reference SPECIFIC iconic items from the artist's DNA, not generic mechanics.** The reference YAMLs (toto, gims, twinsmatic) use slightly generic card names because they were extracted from earlier-era decks — those are starting structures, not the bar. The bar is: every card should make a fan think "oh that's so [Artist]." Use the verified DNA (signature songs, recurring imagery, fan-known characters, iconic merch items, ad-libs, in-jokes) to theme each card around something fans already recognise.
+
+**Bad (too generic):** `City hunt — Scan QR checkpoints to unlock drops`
+
+**Good (anchored to artist DNA):** `Pookie hunt — Spot the Pookie drops in 10 French cities, first 100 scanners win a Stade upgrade` *(uses Aya's iconic song character "Pookie" as the hunted item)*
+
+**Good (album-pulse example):** `Hidden track — A handful of fans unlock an unreleased loop from twinsmatic's lab` *(uses producer-DNA framing: lab, loops, beats)*
+
+**Good (concert-pulse example):** `Encore unlock — Scan your stub at the venue, get a free drink + the "Salgoat" wristband` *(specific tour name + tangible item)*
+
+When the artist has multiple iconic items (songs, characters, signature looks), distribute them across cards so the deck feels deep, not repetitive. E.g. for Aya: Pookie (build-up hunt), Djadja (rhythm game), Diamant (peak drop), nail kit (post-show collectible).
+
 ### 5. Set up the deck folder + give the user the asset brief
 
 Create `magic-{artist-slug}-deck/` as a sibling of the other deck folders.
