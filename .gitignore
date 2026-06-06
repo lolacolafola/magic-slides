@@ -1,0 +1,15 @@
+# Generated test renders (never committed)
+test-output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp

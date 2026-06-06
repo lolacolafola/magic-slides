@@ -1,0 +1,204 @@
+# Magic deck profile — twinsmatic (album pulse, lowercase brand)
+# Renders byte-identical (modulo whitespace) to magic-twinsmatic-deck/index.html
+
+pulse_type: album
+
+identity:
+  deck_slug: twinsmatic
+  deck_title: "Magic — twinsmatic"
+  artist_name_display: twinsmatic            # lowercase intentional
+  artist_name_pill: twinsmatic
+  artist_name_pill_lowercase_flag: true
+  s4_centre_line1: twins
+  s4_centre_line2: matic
+  s4_centre_line1_size: 11
+
+cover:
+  cover_trigger_en: "Built for the next album · Out October"
+  cover_trigger_fr: "Pensé pour le prochain album · Sortie en octobre"
+
+s1:
+  s1_trigger_en: "The album is the trigger. Magic is what turns a release week into a fandom that keeps going."
+  s1_trigger_fr: "L'album, c'est le déclencheur. Magic, c'est ce qui transforme une semaine de sortie en un fandom qui dure."
+  s1_hero_img_src: "Assets/Deck Edits/Group 1171275387.png"
+  s1_hero_img_alt: twinsmatic
+  s1_hero_object_position: "center 30%"
+  s1_hero_mirrored: false
+
+hero:
+  frames_path_prefix: "Assets/Frames/Deck Edits/"
+  s_superfans_hero_img_src: "Assets/Deck Edits/Twinsmatic 1st photo.png"
+  s_superfans_hero_object_position: "center 30%"
+
+s5:
+  s5_body_en: "Magic, for real. A range of experiences inside the Fanverse, shaped with your team (chat, treasure hunts, drops, collectibles, and more), keeping twinsmatic and his fans close every day."
+  s5_body_fr: "Magic en vrai. De nombreuses expériences au cœur du Fanverse à développer avec vos équipes (chat, chasse au trésor, drops, collectibles, etc.) rapprochent twinsmatic et ses fans chaque jour."
+
+momentum:
+  momentum_sub_en: "Magic turns the album drop and everything around it into fan experiences that drive more reach, more sales, more engagement. Fewer flat spots, momentum all year."
+  momentum_sub_fr: "Magic transforme la sortie de l'album et tout ce qui l'entoure en expériences fans qui génèrent plus de portée, plus de ventes, plus d'engagement. Moins de creux, du momentum toute l'année."
+  phase_build_label_en: "Recruit &amp; warm up · Jun - Sep"
+  phase_build_label_fr: "Recrutement &amp; mise en route · juin - sep"
+  phase_peak_label_en: "Album drop · Oct"
+  phase_peak_label_fr: "Sortie de l'album · oct"
+  phase_after_label_en: "Beyond the drop · Nov - onwards"
+  phase_after_label_fr: "Au-delà de la sortie · nov - et après"
+
+crm:
+  crm_headline_en_html: 'The build-up to <span class="gt">the album, and beyond.</span>'
+  crm_headline_fr_html: 'La montée vers <span class="gt">l''album, et au-delà.</span>'
+  crm_sub_en: "We take our library of features and experiences and tailor them to twinsmatic, making every pulse point bigger and keeping the engagement going from one to the next."
+  crm_sub_fr: "Nous prenons notre librairie de fonctionnalités et d'expériences et nous l'adaptons à twinsmatic, en amplifiant chaque temps fort et en gardant l'engagement vivant d'un moment au suivant."
+  crm_months:
+    - label: JUN
+      is_peak: false
+      cards:
+        - nm_en: "Spotify connect"
+          nm_fr: "Connectez Spotify"
+          hk_en: "Link your Spotify, earn coins for every twinsmatic stream"
+          hk_fr: "Connectez votre Spotify, gagnez des coins à chaque écoute de twinsmatic"
+          color: cyan
+          rwd: true
+          icons: [sparkle, spotify]
+        - nm_en: "Plug a friend"
+          nm_fr: "Pluggez un ami"
+          hk_en: "Drop a friend in, coins for every recruit who sticks"
+          hk_fr: "Faites entrer un ami, des coins pour chaque recrue qui reste"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: JUL
+      is_peak: false
+      cards:
+        - nm_en: "Scan the wild"
+          nm_fr: "Scannez en rue"
+          hk_en: "Scan ATLAS sleeves and TSC drops to earn coins"
+          hk_fr: "Scannez les pochettes ATLAS et les drops TSC pour gagner des coins"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+        - nm_en: "Magic Quest"
+          nm_fr: "Magic Quest"
+          hk_en: "Climb the free XP lane to unreleased loops and stems"
+          hk_fr: "Grimpez la lane XP gratuite vers des loops et stems inédits"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: AUG
+      is_peak: false
+      cards:
+        - nm_en: "twinsmatic tastes"
+          nm_fr: "Les goûts de twinsmatic"
+          hk_en: "The producer's playlist, samples and references that shaped the album"
+          hk_fr: "La playlist du producteur, samples et références qui ont façonné l'album"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+        - nm_en: "Beat library"
+          nm_fr: "Bibliothèque de beats"
+          hk_en: "Build your library of favourite twinsmatic productions"
+          hk_fr: "Construisez votre bibliothèque de prods twinsmatic préférées"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: SEP
+      is_peak: false
+      cards:
+        - nm_en: "Album pre-order"
+          nm_fr: "Précommande de l'album"
+          hk_en: "Top fans get first dibs on the album pre-order"
+          hk_fr: "Les top fans accèdent en priorité à la précommande de l'album"
+          color: cyan
+          rwd: false
+          icons: [ticket]
+        - nm_en: "Final countdown"
+          nm_fr: "Compte à rebours"
+          hk_en: "Daily beat teasers the week before the album drops"
+          hk_fr: "Teasers de prods quotidiens la semaine avant la sortie"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: OCT
+      is_peak: true
+      cards:
+        - nm_en: "Drop day stream"
+          nm_fr: "Stream du jour J"
+          hk_en: "Day-one streams count double, first 100 listeners get a badge"
+          hk_fr: "Les streams du jour J comptent double, les 100 premiers fans gagnent un badge"
+          color: purp
+          rwd: true
+          icons: [sparkle, spotify]
+        - nm_en: "Listening session"
+          nm_fr: "Session d'écoute"
+          hk_en: "Hear the album first, twinsmatic walks through every track"
+          hk_fr: "Écoutez l'album en avant-première, twinsmatic décrypte chaque morceau"
+          color: purp
+          rwd: false
+          icons: [ticket]
+    - label: OCT
+      is_peak: true
+      cards:
+        - nm_en: "Exclusive merch drop"
+          nm_fr: "Drop merch exclusif"
+          hk_en: "Drop-day exclusive merch capsule, only for Fanverse members"
+          hk_fr: "Capsule merch exclusive le jour de la sortie, uniquement pour les fans du Fanverse"
+          color: purp
+          rwd: false
+          icons: [bag]
+        - nm_en: "Hidden track"
+          nm_fr: "Titre caché"
+          hk_en: "A handful of fans unlock an unreleased track from the lab"
+          hk_fr: "Une poignée de fans débloque un titre inédit du labo"
+          color: purp
+          rwd: true
+          icons: [sparkle]
+    - label: NOV
+      is_peak: false
+      cards:
+        - nm_en: "Behind the boards"
+          nm_fr: "Aux commandes"
+          hk_en: "Premium tier, studio sessions, beat-making walkthroughs, stems"
+          hk_fr: "Tier premium, sessions studio, beat-making en pas à pas, stems"
+          color: teal
+          rwd: false
+          icons: [video]
+        - nm_en: "Loop drops"
+          nm_fr: "Drops de loops"
+          hk_en: "Beats as collectibles, signature loops dropped only in the Fanverse"
+          hk_fr: "Les beats en collectibles, des loops signature droppés uniquement dans le Fanverse"
+          color: teal
+          rwd: false
+          icons: [bag]
+    - label: DEC
+      is_peak: false
+      cards:
+        - nm_en: "Magic Quest"
+          nm_fr: "Magic Quest"
+          hk_en: "Climb premium, top tier wins a meet &amp; greet with twinsmatic"
+          hk_fr: "Grimpez la premium, le top niveau remporte un meet &amp; greet avec twinsmatic"
+          color: teal
+          rwd: true
+          icons: [sparkle, ticket]
+
+revenue:
+  sim_default_reach: "1M"
+  sim_default_fans: "100K"
+  sim_conversion_rate: "0.10"
+  sim_conversion_pct_label: "10% TO MAGIC"
+  sim_tier_fan_count: "100K · €0.10/activation"
+  sim_tier_fan_amt: "€10k"
+  sim_tier_merch_count: "33K · €5/item · 20% boost on volumes"
+  sim_tier_merch_amt: "€38k"
+  sim_tier_iap_count: "33K · €10/IAP"
+  sim_tier_iap_amt: "€6k"
+  sim_tier_prem_count: "3K · €1.15/user"
+  sim_tier_prem_amt: "€28k"
+  sim_gross: "€81,833"
+  sim_commission: "−€20,458"
+  sim_net: "€61,375"
+
+outro:
+  s13_capacity_bullet_en_html: "a release reaches a moment, then fades. Magic opens a permanent space for every fan, on every release, forever."
+  s13_capacity_bullet_fr_html: "une sortie touche un instant, puis s'estompe. Magic ouvre un espace permanent pour chaque fan, à chaque sortie, pour toujours."
+  s13_moment_bullet_en_html: "from the first teaser to release week and the months after, every fan lives every beat alongside twinsmatic."
+  s13_moment_bullet_fr_html: "du premier teaser à la semaine de sortie et aux mois qui suivent, chaque fan vit chaque temps fort aux côtés de twinsmatic."

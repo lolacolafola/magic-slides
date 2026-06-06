@@ -1,0 +1,200 @@
+# Magic deck profile — Sabrina Carpenter (concert pulse, single date, Coachella 2026 headliner)
+# TEST RUN: facts web-verified June 2026. Anchor moment = Coachella Friday headline.
+# Images NOT yet sourced; preview will show broken-image icons until assets are added.
+
+pulse_type: concert
+
+identity:
+  deck_slug: sabrina-carpenter
+  deck_title: "Magic — Sabrina Carpenter"
+  artist_name_display: Sabrina Carpenter
+  artist_name_pill: Sabrina Carpenter
+  artist_name_pill_lowercase_flag: false
+  s4_centre_line1: SABRINA
+  s4_centre_line2: CARPENTER
+  s4_centre_line1_size: 11
+
+cover:
+  cover_trigger_en: "Built for Coachella 2026 · Indio · Friday headliner"
+  cover_trigger_fr: "Pensé pour Coachella 2026 · Indio · vendredi en tête d'affiche"
+
+s1:
+  s1_trigger_en: "Coachella is the trigger. Magic is what turns one headline set into a fandom that keeps going."
+  s1_trigger_fr: "Coachella, c'est le déclencheur. Magic, c'est ce qui transforme une tête d'affiche en un fandom qui dure."
+  s1_hero_img_src: "Assets/sabrina-hero.jpg"  # TODO: add image
+  s1_hero_img_alt: Sabrina Carpenter
+  s1_hero_object_position: "center 30%"
+  s1_hero_mirrored: false
+
+hero:
+  frames_path_prefix: "Assets/Frames/Deck Edits/"  # TODO: drop the 5 frame PNGs here
+  s_superfans_hero_img_src: "Assets/sabrina-superfans.jpg"  # TODO: add image
+  s_superfans_hero_object_position: "center 30%"
+
+s5:
+  s5_body_en: "Magic, for real. A range of experiences inside the Fanverse, shaped with your team (chat, treasure hunts, drops, collectibles, and more), keeping Sabrina Carpenter and her fans close every day."
+  s5_body_fr: "Magic en vrai. De nombreuses expériences au cœur du Fanverse à développer avec vos équipes (chat, chasse au trésor, drops, collectibles, etc.) rapprochent Sabrina Carpenter et ses fans chaque jour."
+
+momentum:
+  momentum_sub_en: "Magic turns Coachella and everything around it into fan experiences that drive more reach, more sales, more engagement. Fewer flat spots, momentum all year."
+  momentum_sub_fr: "Magic transforme Coachella et tout ce qui l'entoure en expériences fans qui génèrent plus de portée, plus de ventes, plus d'engagement. Moins de creux, du momentum toute l'année."
+  phase_build_label_en: "Build-up · Jan - Mar"
+  phase_build_label_fr: "Mise en route · jan - mars"
+  phase_peak_label_en: "Coachella · Apr"
+  phase_peak_label_fr: "Coachella · avril"
+  phase_after_label_en: "After the set · May - onwards"
+  phase_after_label_fr: "Après le set · mai - et après"
+
+crm:
+  crm_headline_en_html: 'The road to <span class="gt">Coachella and beyond.</span>'
+  crm_headline_fr_html: 'La route vers <span class="gt">Coachella, et au-delà.</span>'
+  crm_sub_en: "Here's an example of Sabrina Carpenter's Fanverse in action, from her first stream to the next tour."
+  crm_sub_fr: "Voici un exemple du Fanverse de Sabrina Carpenter en action, du premier stream à la prochaine tournée."
+  crm_months:
+    - label: JAN
+      is_peak: false
+      cards:
+        - nm_en: "Spotify connect"
+          nm_fr: "Connectez Spotify"
+          hk_en: "Link Spotify, earn coins for every Sabrina stream"
+          hk_fr: "Connectez Spotify, gagnez des coins à chaque écoute de Sabrina"
+          color: cyan
+          rwd: true
+          icons: [sparkle, spotify]
+        - nm_en: "Carpenters crew"
+          nm_fr: "Équipe Carpenters"
+          hk_en: "Refer a friend, both earn coins when they join"
+          hk_fr: "Parrainez un ami, gagnez des coins ensemble quand il rejoint"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: FEB
+      is_peak: false
+      cards:
+        - nm_en: "Espresso scan"
+          nm_fr: "Scan Espresso"
+          hk_en: "Scan Short n' Sweet vinyl or CDs to unlock coins"
+          hk_fr: "Scannez les vinyles ou CDs de Short n' Sweet pour gagner des coins"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+        - nm_en: "Magic Quest"
+          nm_fr: "Magic Quest"
+          hk_en: "Climb the free XP lane to unreleased Sabrina demos"
+          hk_fr: "Grimpez la lane XP gratuite vers des démos inédites de Sabrina"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: MAR
+      is_peak: false
+      cards:
+        - nm_en: "Sabrina tastes"
+          nm_fr: "Les goûts de Sabrina"
+          hk_en: "Her playlist of inspirations, from her early covers to today"
+          hk_fr: "Sa playlist d'inspirations, de ses premières reprises à aujourd'hui"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: EARLY APR
+      is_peak: false
+      cards:
+        - nm_en: "Festival pre-show"
+          nm_fr: "Avant le festival"
+          hk_en: "Top fans unlock the Coachella warmup playlist"
+          hk_fr: "Les top fans débloquent la playlist warmup Coachella"
+          color: cyan
+          rwd: false
+          icons: [ticket]
+        - nm_en: "Final countdown"
+          nm_fr: "Compte à rebours"
+          hk_en: "Daily Short n' Sweet teasers the week before Coachella"
+          hk_fr: "Teasers Short n' Sweet quotidiens la semaine avant Coachella"
+          color: cyan
+          rwd: true
+          icons: [sparkle]
+    - label: APR
+      is_peak: true
+      cards:
+        - nm_en: "Coachella live"
+          nm_fr: "Coachella en direct"
+          hk_en: "Festival weekend — double coins on every stream"
+          hk_fr: "Weekend festival, double coin sur chaque écoute"
+          color: purp
+          rwd: true
+          icons: [sparkle, spotify]
+        - nm_en: "Bows capsule"
+          nm_fr: "Capsule bows"
+          hk_en: "Festival merch capsule, only for Fanverse Carpenters"
+          hk_fr: "Capsule merch festival, uniquement pour les Carpenters Fanverse"
+          color: purp
+          rwd: false
+          icons: [bag]
+    - label: APR
+      is_peak: true
+      cards:
+        - nm_en: "Setlist unlock"
+          nm_fr: "Setlist débloquée"
+          hk_en: "Fanverse fans see the setlist preview before each weekend"
+          hk_fr: "Aperçu de setlist en exclu Fanverse, avant chaque weekend"
+          color: purp
+          rwd: false
+          icons: [ticket]
+        - nm_en: "Backstage clip"
+          nm_fr: "Clip backstage"
+          hk_en: "A handful of fans unlock a Coachella behind-the-scenes clip"
+          hk_fr: "Une poignée de fans débloque un clip backstage Coachella"
+          color: purp
+          rwd: true
+          icons: [sparkle, video]
+    - label: LATE APR
+      is_peak: false
+      cards:
+        - nm_en: "Behind Coachella"
+          nm_fr: "Coulisses Coachella"
+          hk_en: "Premium tier, week-by-week prep, soundcheck, stage build"
+          hk_fr: "Tier premium, prép semaine par semaine, balances, montage scène"
+          color: teal
+          rwd: false
+          icons: [video]
+        - nm_en: "Carpenters drop"
+          nm_fr: "Drop Carpenters"
+          hk_en: "Limited Coachella collectible, only for the first 5,000"
+          hk_fr: "Collectible Coachella en édition limitée, pour les 5 000 premiers"
+          color: teal
+          rwd: false
+          icons: [bag]
+    - label: MAY
+      is_peak: false
+      cards:
+        - nm_en: "First listen"
+          nm_fr: "Première écoute"
+          hk_en: "Premium tier, first listen on every next single before drop"
+          hk_fr: "Tier premium, première écoute de chaque nouveau single avant la sortie"
+          color: teal
+          rwd: true
+          icons: [spotify]
+
+revenue:
+  # NOTE: kept Toto's defaults — Sabrina's actual scale is global pop-star tier
+  # (60M+ Spotify monthly listeners). User should adjust reach/fans before pitch.
+  sim_default_reach: "4M"
+  sim_default_fans: "600K"
+  sim_conversion_rate: "0.15"
+  sim_conversion_pct_label: "15% TO MAGIC"
+  sim_tier_fan_count: "600K · €0.10/activation"
+  sim_tier_fan_amt: "€60k"
+  sim_tier_merch_count: "200K · €5/item · 20% boost on volumes"
+  sim_tier_merch_amt: "€230k"
+  sim_tier_iap_count: "200K · €10/IAP"
+  sim_tier_iap_amt: "€36k"
+  sim_tier_prem_count: "20K · €1.15/user"
+  sim_tier_prem_amt: "€165k"
+  sim_gross: "€491,000"
+  sim_commission: "−€122,750"
+  sim_net: "€368,250"
+
+outro:
+  s13_capacity_bullet_en_html: "Coachella draws ~125,000 fans per weekend. Magic opens a space for them, and for the millions of Carpenters who couldn't be there too."
+  s13_capacity_bullet_fr_html: "Coachella attire ~125 000 fans par weekend. Magic leur ouvre un espace, ainsi qu'aux millions de Carpenters qui n'ont pas pu en être."
+  s13_moment_bullet_en_html: "from the lineup announcement to the final encore and the months after, every fan lives every beat alongside Sabrina Carpenter, festival pass or not."
+  s13_moment_bullet_fr_html: "de l'annonce du lineup au dernier rappel puis aux mois qui suivent, chaque fan vit un instant unique avec Sabrina Carpenter, pass festival ou non."
